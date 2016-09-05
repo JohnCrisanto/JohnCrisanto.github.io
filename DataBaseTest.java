@@ -45,8 +45,8 @@ public class DataBaseTest {
         // Here is an example of updating a defect
         // defect.defectName will be searched in database
 
-        defect.Copy(myList.get(1));
-        defect.setPriority("low");
+        defect.Copy(myList.get(7));
+        defect.setPriority("medium");
         
         if (DataBaseHelper.updateDefect(defect) == null)
         {
@@ -61,6 +61,19 @@ public class DataBaseTest {
             System.out.println(myItem);
         }
         
-    }
+        // ============== Database API example 4 ===================
+        // Database API example: search application
+        HashMap<String, String> appMap = new HashMap<String, String>();
+        appMap = DataBaseHelper.getAppMap();
+        
+        System.out.println("\nWe get here 5");
+        // Need to create a sorted arraylist for keys
+        ArrayList<String> sortedKeys = new ArrayList<String>(appMap.keySet());
+        Collections.sort(sortedKeys);
     
+        for (String key: sortedKeys)
+        {
+            System.out.println(key + "->" + appMap.get(key));
+        }
+    }
 }
