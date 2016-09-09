@@ -36,7 +36,7 @@ public class Email {
         Message message = new MimeMessage(session);
 
         try {
-            message.setSubject("Status Information for " + defect.getDefectName() + ": " + defect.getSummary().toUpperCase());
+            message.setSubject("Status Information for Defect " + defect.getDefectName() + ": " + defect.getSummary().toUpperCase());
             message.setText("Your ticket has been successfully created or updated.\n" + "\nDefect Ticket Information: \n"
                     + "\nApplication name: " + defect.getapplication() + "\n"
                     + "Assignee: " + defect.getAssignee() + "\n"
