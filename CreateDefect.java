@@ -1,4 +1,4 @@
-package BugTrackerSystem;
+package teamc;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,14 +15,6 @@ import java.util.ArrayList;
 @WebServlet(name = "CreateDefect", urlPatterns = ("/CreateDefect"))
 public class CreateDefect extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        //Created ArrayList for testing
-        ArrayList<Defect> defectList = new ArrayList<Defect>();
-
-        //Added hardcoded objects into ArrayList
-        defectList.add(new Defect("ProjectA", "felipe@erv.com.ca", 1000, "this is a summary", "high", "open", "this is a description"));
-        defectList.add(new Defect("ProjectA", "john@tts.com", 1001, "this is a summary", "high", "open", "this is a description"));
-        defectList.add(new Defect("ProjectB", "samuel@ggw.com", 1005, "this is a summary", "high", "open", "this is a description"));
 
         //Retrieve data from submitted form through createDefects.html and create a new Defect object using retrieved data
         String application = request.getParameter("application");
