@@ -1,3 +1,5 @@
+package teamc;
+
 import java.io.*;
 import java.util.*;
 import java.sql.*;
@@ -15,13 +17,22 @@ public class DataBaseHelper {
         
         ArrayList<Defect> defectList = searchDefect("*","");
         
-        Integer lastId = 0;
+        Integer lastId = 1000;
         
-        for (Defect item : defectList) {
-            if (item.getDefectName() > lastId) {
-                lastId = item.defectName;
+        if ( (defectList == null) || (defectList.size() == 0) )
+        {
+            //System.out.println("getLastDefectId: null search ");
+        }
+        else
+        {
+            //System.out.println("getLastDefectId: list is " + defectList);
+            for (Defect item : defectList) {
+                if (item.getDefectName() > lastId) {
+                    lastId = item.defectName;
+                }
             }
         }
+
         return lastId;
     }
 
