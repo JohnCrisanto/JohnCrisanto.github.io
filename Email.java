@@ -1,4 +1,4 @@
-package BugTrackerSystem;
+package teamc;
 
 import javax.mail.*;
 import javax.mail.internet.InternetAddress;
