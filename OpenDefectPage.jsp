@@ -9,7 +9,7 @@
 
 <head>
 	<title>Open Defects</title>
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" href="style2.css">
 </head>
 
 <body>
@@ -34,12 +34,28 @@
 	<br></br>
 	<!--Start Table : Need to query info from database. These are sample data only-->
 
-    <form action="DetailTester" method="post">
-         <% List<Defect> newList = (ArrayList<Defect>) request.getAttribute("passby");%> 
-         <%// System.out.println("Inside jsp: " + newList.get(1).getDescription()); %>
-	<table>
+     <%if(request.getAttribute("passby").equals("noDefects")){
+        String noDef = "This projects does not have any open defects.";
+     %>
+        <table>
 		<thead>
-			<tr>
+ 			<tr>
+				<th>
+					 <%=noDef%>
+				</th>     
+			</tr>
+		</thead>     
+	 </table>     
+    <%}else {%>
+    	 <% List<Defect> newList = (ArrayList<Defect>) request.getAttribute("passby");%> 
+         <%// System.out.println("Inside jsp: " + newList.get(1).getDescription()); %>
+
+
+    <form action="DetailTester" method="post">
+
+	 <table>
+		<thead>
+ 			<tr>
 				<th>
 					 Defect Name
 				</th>
@@ -55,11 +71,9 @@
 
         <%for(Defect useList : newList){
         	Integer cell1 = useList.getDefectName();
-        	String cell2 = useList.getDescription();
+        	String cell2 = useList.getSummary();
         	String cell3 = useList.getAssignee();
 //        	System.out.println(cell1 + " " + cell2 + " " + cell3);
-        	
-        	
         	%>
 
 			<tr>
@@ -75,12 +89,13 @@
 			</tr>
          <%} %>
 		</tbody>
-	</table>
 
+ 
+	 </table>
        <input type="submit" value="submit">
 
     </form>
-
+  <%}%>
 
 </body>
 

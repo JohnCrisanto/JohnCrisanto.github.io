@@ -148,7 +148,7 @@ public class DataBaseHelper {
             
             // STEP 4: Execute SQL Statements
 
-            // Get table size
+            // Get table of defects
             statement.execute("SELECT * FROM defects0");
             
             rs = statement.getResultSet();
@@ -214,23 +214,51 @@ public class DataBaseHelper {
         //executeQuery("query to search app map");
         try
         {
-            rs = executeQuery("SELECT * FROM applications0");
-            while (rs.next())
-            {
-                localAppMap.put(rs.getString(1), rs.getString(2));
+            // STEP 1: Load the Driver
+            Class.forName(driverString);
+            
+            // STEP 2: Make a Connection to the Database
+            // In linux Leap, the name of the mysql is mariadb
+            Connection connection = DriverManager.getConnection(connString);
+            
+            // STEP 3: Create a Statement
+            Statement statement = connection.createStatement();
+            
+            // STEP 4: Execute SQL Statements
+
+            // Get table of defects
+            statement.execute("SELECT * FROM applications0");
+            
+            rs = statement.getResultSet();
+                                    
+            if (rs == null) {
+                // Read the sentence column
+                //System.out.println("excuteQuery info: null result set for query " + sqlQuery);
             }
-            return localAppMap;
+	
+            if (rs != null){
+                while (rs.next())
+                {
+                    localAppMap.put(rs.getString(1), rs.getString(2));
+                }            	
+            }
+
+            // STEP 5: Close the statement and connection
+            statement.close();
+            connection.close();
+        
         }
+        catch (ClassNotFoundException e)
+        {
+            System.out.println("Could not find database driver: " + e.getMessage());
+        }           
+       
         catch (SQLException e)
-        {
-            System.out.println("getAppMap SQLException: " + e);
-            return null;
-        }
-        catch (IOException e)
-        {
-            System.out.println("getAppMap IOException: " + e);
-            return null;
-        }
+                {
+                    System.out.println("searchDefect Exception: SQLException: " + e.getMessage());
+                }
+
+        return localAppMap;
     }
 
         
@@ -277,5 +305,77 @@ public class DataBaseHelper {
         }
         
         return rs;
+    }
+
+
+    // This method allows you to search the defect ArrayList
+    // valid keyNames are defectName, application, *
+    public static ArrayList<Defect> openProjectDefects()
+    {        
+        //if (defectList == null) {
+            //System.out.println("fillList called");
+        //    fillList();
+        //}
+        ArrayList<Defect> openDefectList = new ArrayList<Defect>();
+        
+        ResultSet rs = null;
+        
+        try
+        {
+            // STEP 1: Load the Driver
+            Class.forName(driverString);
+            
+            // STEP 2: Make a Connection to the Database
+            // In linux Leap, the name of the mysql is mariadb
+            Connection connection = DriverManager.getConnection(connString);
+            
+            // STEP 3: Create a Statement
+            Statement statement = connection.createStatement();
+            
+            // STEP 4: Execute SQL Statements
+
+            // Get table of defects
+            statement.execute("SELECT * FROM defects0" + " " +
+                              "INNER JOIN applications0" + " " +
+            		          "ON defects0.application = applications0.application" + " " +
+                              "WHERE applications0.status = 'open'" );
+            
+            rs = statement.getResultSet();
+                                    
+            if (rs == null) {
+                // Read the sentence column
+                //System.out.println("excuteQuery info: null result set for query " + sqlQuery);
+            }
+
+            if (rs != null)
+            {
+
+                    while (rs.next())
+                    {
+                        Defect tempDefect = new Defect(rs.getString(1), rs.getString(6), rs.getInt(2),
+    		    	rs.getString(7), rs.getString(5), rs.getString(4), rs.getString(3));
+                        openDefectList.add(tempDefect);
+                    }
+            }                
+
+        // STEP 5: Close the statement and connection
+        statement.close();
+        connection.close();
+
+
+        
+        }  
+
+        catch (ClassNotFoundException e)
+        {
+            System.out.println("Could not find database driver: " + e.getMessage());
+        }           
+       
+        catch (SQLException e)
+                {
+                    System.out.println("searchDefect Exception: SQLException: " + e.getMessage());
+                }
+
+        return openDefectList;    
     }
 }

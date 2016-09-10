@@ -20,6 +20,7 @@
   <description>
      Welcome to Tomcat
   </description>
+
   <servlet>
     <servlet-name>OpenDefects</servlet-name>
     <servlet-class>teamc.OpenDefects</servlet-class>
@@ -28,12 +29,23 @@
     <servlet-name>OpenDefects</servlet-name>
     <url-pattern>/OpenDefects</url-pattern>
   </servlet-mapping>
+
   <servlet>
-    <servlet-name>DetailTester</servlet-name>
-    <servlet-class>teamc.DetailTester</servlet-class>
+    <servlet-name>CreateDefect</servlet-name>
+    <servlet-class>teamc.CreateDefect</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>DetailTester</servlet-name>
-    <url-pattern>/DetailTester</url-pattern>
+    <servlet-name>CreateDefect</servlet-name>
+    <url-pattern>/CreateDefect</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>ShowDetails</servlet-name>
+    <servlet-class>teamc.ShowDetails</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShowDetails</servlet-name>
+    <url-pattern>/ShowDetails</url-pattern>
+  </servlet-mapping>
+
 </web-app>
