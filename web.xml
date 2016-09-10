@@ -47,5 +47,14 @@
     <servlet-name>ShowDetails</servlet-name>
     <url-pattern>/ShowDetails</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>UpdateDefect</servlet-name>
+    <servlet-class>teamc.UpdateDefect</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateDefect</servlet-name>
+    <url-pattern>/UpdateDefect</url-pattern>
+  </servlet-mapping>
 
 </web-app>
