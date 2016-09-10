@@ -7,9 +7,9 @@ import java.sql.*;
 public class DataBaseHelper {
 
     // Update the member bellow to match your database driver
-    private final static String driverString = "org.mariadb.jdbc.Driver";
+    private final static String driverString = "com.mysql.jdbc.Driver";
     // Update the member bellow to match your database connection socket, user and password
-    private final static String connString = "jdbc:mariadb://localhost:3306/books?user=userdb&password=";
+    private final static String connString = "jdbc:mysql://localhost:3306/teamc?user=root&password=1Lauren!";
 
     // This method gets the highest defectName number
     // WARNING: THIS IS PRIVATE AND SHOULD NOT BE INVOKED FROM EXTARNAL CLASSES
@@ -136,30 +136,55 @@ public class DataBaseHelper {
         
         try
         {
-            rs = executeQuery("SELECT * FROM defects0");
-        }
-        catch (IOException e)
-        {
-            System.out.println("searchDefect Exception: IOException: " + e);
-        }
-        
-        if (rs != null)
-        {
-            try
+            // STEP 1: Load the Driver
+            Class.forName(driverString);
+            
+            // STEP 2: Make a Connection to the Database
+            // In linux Leap, the name of the mysql is mariadb
+            Connection connection = DriverManager.getConnection(connString);
+            
+            // STEP 3: Create a Statement
+            Statement statement = connection.createStatement();
+            
+            // STEP 4: Execute SQL Statements
+
+            // Get table size
+            statement.execute("SELECT * FROM defects0");
+            
+            rs = statement.getResultSet();
+                                    
+            if (rs == null) {
+                // Read the sentence column
+                //System.out.println("excuteQuery info: null result set for query " + sqlQuery);
+            }
+
+            if (rs != null)
             {
-                while (rs.next())
+
+                    while (rs.next())
+                    {
+                        Defect tempDefect = new Defect(rs.getString(1), rs.getString(6), rs.getInt(2),
+    		    	rs.getString(7), rs.getString(5), rs.getString(4), rs.getString(3));
+                        defectList.add(tempDefect);
+                    }
+            }                
+
+        // STEP 5: Close the statement and connection
+        statement.close();
+        connection.close();
+
+        }  
+
+        catch (ClassNotFoundException e)
+        {
+            System.out.println("Could not find database driver: " + e.getMessage());
+        }           
+       
+        catch (SQLException e)
                 {
-                    Defect tempDefect = new Defect(rs.getString(1), rs.getString(6), rs.getInt(2),
-		    	rs.getString(7), rs.getString(5), rs.getString(4), rs.getString(3));
-                    defectList.add(tempDefect);
+                    System.out.println("searchDefect Exception: SQLException: " + e.getMessage());
                 }
-            }
-            catch (SQLException e)
-            {
-                System.out.println("searchDefect Exception: SQLException: " + e);
-            }
-        }
-        
+
         
         for (Defect item : defectList) {
             match = false;
