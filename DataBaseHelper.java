@@ -58,7 +58,6 @@ public class DataBaseHelper {
                                                            "'" + newDefect.getAssignee() + "'," +
                                                            "'" + newDefect.getDescription() + "')"
                                                            );
-            return newDefect;
         }
         catch (IOException e)
         {
@@ -66,7 +65,7 @@ public class DataBaseHelper {
         }
         finally
         {
-            return null;
+            return newDefect;
         }
     }
 
