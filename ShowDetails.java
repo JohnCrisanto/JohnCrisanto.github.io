@@ -1,3 +1,5 @@
+package teamc;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -15,24 +17,28 @@ public class ShowDetails extends HttpServlet {
 
 		// Get Database of all defects.
 		ArrayList<Defect> searchedDefect = new ArrayList<Defect>();
-		searchedDefect = DataBaseHelper.searchDefect("defectName",
-				"application");
-		
+
+		// request.getParameter
+
+		String defectName = request.getParameter("defectName");
+		String commonKey = request.getParameter("commonKey");
+
+		searchedDefect = DataBaseHelper.searchDefect(defectName, commonKey);
+
 		// setting up Dispatcher
 		RequestDispatcher dispatcher = getServletConfig().getServletContext()
 				.getRequestDispatcher("/showDetails.jsp");
 
 		// set values to request
 
-		// Defect("ProjectA", "felipe@erv.com.ca", 1000, "this is a summary",
-		// "high", "open", "this is a description"));
-
-		request.setAttribute("application", searchedDefect.get(0));
-		request.setAttribute("assignee", searchedDefect.get(1));
-		request.setAttribute("defectName", searchedDefect.get(2));
-		request.setAttribute("summary", searchedDefect.get(3));
-		request.setAttribute("priority", searchedDefect.get(4));
-		request.setAttribute("status", searchedDefect.get(5));
+		request.setAttribute("application", searchedDefect.get(0)
+				.getapplication());
+		request.setAttribute("assignee", searchedDefect.get(0).getAssignee());
+		request.setAttribute("defectName", searchedDefect.get(0)
+				.getDefectName());
+		request.setAttribute("summary", searchedDefect.get(0).getSummary());
+		request.setAttribute("priority", searchedDefect.get(0).getPriority());
+		request.setAttribute("status", searchedDefect.get(0).getStatus());
 
 		// forward to JSP
 		dispatcher.forward(request, response);

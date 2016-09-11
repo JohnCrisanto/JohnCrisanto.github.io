@@ -1,3 +1,5 @@
+package teamc;
+
 public class Defect {
 	public String application;	
 	public String assignee;
