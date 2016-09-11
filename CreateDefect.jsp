@@ -15,9 +15,9 @@
 <%= request.getAttribute("confirmation") %>
     </div>
     <br></br>
-    <form action="../OpenDefects" method="POST">
-        <input type="submit"  value="Go Back to List of Defects.">
-    </form>
+    <a href = "index.html">
+    <input type = "submit" value ="Go Back to Home Page.">
+    </a>
     <br></br>
 </h1>
 </body>
