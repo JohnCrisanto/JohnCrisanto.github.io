@@ -2,21 +2,32 @@
 <%@ page import = "java.io.*" %>
 <%@ page import = "teamc.Defect" %>
 <%@ page import = "java.lang.*" %>
-<%@ page import = "teamc.DetailTester" %>
 
 <!DOCTYPE HTML>
 <html lang = "en-US">
 
 <head>
-	<title>Open Defects</title>
-	<link rel="stylesheet" href="style2.css">
+	<title>E-Corp. Bug Tracker</title>
+	<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-	<div style = "background-color: lightblue; text-align:center;height: 100px">
-		<h1>List Of Open Defects</h1>
+	<div class="header">
+		<h1>Evil Corporation <br/><span class="sub">Defect Tracking System</span></h1> 
+		    <img src = "${pageContext.request.contextPath}/images/Evil_Corp.png"
+		         alt = "Evil Corp Logo" />
+          
+               
 	</div>
-	<br></br>
+
+	</br>
+    <section class="instructions">
+        <p>To enter a new defect, please use the button below to access the Defect Creation page.<br/>
+           Additional information may be found on any defect by selecting it from the list.  After<br/>    
+           reaching the Defect Details page, you may update the defect as required.<br/>
+        </p>   
+    </section>
+    <br/>
 	<a href = "createDefects.html">
 		<input type = "submit" value ="+ Create Defect">
 	</a>
@@ -32,6 +43,7 @@
        <input type="submit" value="submit">
     </form>
 	<br></br>
+
 	<!--Start Table : Need to query info from database. These are sample data only-->
 
      <%if(request.getAttribute("passby").equals("noDefects")){
@@ -39,6 +51,7 @@
      %>
         <table>
 		<thead>
+           <caption>List of Open Defects</caption>
  			<tr>
 				<th>
 					 <%=noDef%>
@@ -50,12 +63,12 @@
     	 <% List<Defect> newList = (ArrayList<Defect>) request.getAttribute("passby");%> 
          <%// System.out.println("Inside jsp: " + newList.get(1).getDescription()); %>
 
-
     <form action="DetailTester" method="post">
 
 	 <table>
 		<thead>
- 			<tr>
+           <caption>List of Open Defects</caption>
+           	<tr>
 				<th>
 					 Defect Name
 				</th>
@@ -66,9 +79,9 @@
 					Assignee
 				</th>
 			</tr>
-		</thead>
-		<tbody>
+        </thead>
 
+		<tbody>
         <%for(Defect useList : newList){
         	Integer cell1 = useList.getDefectName();
         	String cell2 = useList.getSummary();
@@ -89,11 +102,9 @@
 			</tr>
          <%} %>
 		</tbody>
-
  
 	 </table>
        <input type="submit" value="submit">
-
     </form>
   <%}%>
 
