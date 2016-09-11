@@ -20,14 +20,13 @@ public class ShowDetails extends HttpServlet {
 
 		// request.getParameter
 
-		String defectName = request.getParameter("defectName");
-		String commonKey = request.getParameter("commonKey");
+		String defectName = request.getParameter("commonKey");
 
-		searchedDefect = DataBaseHelper.searchDefect(defectName, commonKey);
+		searchedDefect = DataBaseHelper.searchDefect("defectName", defectName);
 
 		// setting up Dispatcher
 		RequestDispatcher dispatcher = getServletConfig().getServletContext()
-				.getRequestDispatcher("/showDetails.jsp");
+				.getRequestDispatcher("/jsp/showDetails.jsp");
 
 		// set values to request
 
@@ -39,6 +38,7 @@ public class ShowDetails extends HttpServlet {
 		request.setAttribute("summary", searchedDefect.get(0).getSummary());
 		request.setAttribute("priority", searchedDefect.get(0).getPriority());
 		request.setAttribute("status", searchedDefect.get(0).getStatus());
+		request.setAttribute("description", searchedDefect.get(0).getDescription());
 
 		// forward to JSP
 		dispatcher.forward(request, response);

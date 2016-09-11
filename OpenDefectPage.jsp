@@ -63,7 +63,7 @@
     	 <% List<Defect> newList = (ArrayList<Defect>) request.getAttribute("passby");%> 
          <%// System.out.println("Inside jsp: " + newList.get(1).getDescription()); %>
 
-    <form action="DetailTester" method="post">
+    <form action="ShowDetails" method="post">
 
 	 <table>
 		<thead>
