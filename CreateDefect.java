@@ -33,7 +33,7 @@ public class CreateDefect extends HttpServlet {
         Email.sendEmail(defect);
 
         //After sending the email, create dispatcher object to forward request and response to CreateDefect.jsp
-        RequestDispatcher dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/CreateDefect.jsp");
+        RequestDispatcher dispatcher = getServletConfig().getServletContext().getRequestDispatcher("/jsp/CreateDefect.jsp");
         request.setAttribute("confirmation", "Defect-" + defect.getDefectName() + ": " + defect.getSummary() + " has been successfully created.");
         dispatcher.forward(request, response);
 
