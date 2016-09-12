@@ -20,7 +20,7 @@ div {
 </style>
 </head>
 <body>
-	<form action="UpdateDefect.java" method="POST">
+	<form action="UpdateDefect" method="POST">
 	
 	<!-- Passing applicationName and defectName as hidden characters -->
 	
@@ -78,8 +78,8 @@ div {
 		<button type="submit">Update Defect</button>
 	</form>
 
-<br></br> <a href="OpenDefectPage.jsp">
-			<button type="button">List Of Defects</button>
+<br></br> <a href="index.html">
+			<button type="button">Go back to Main page</button>
 		</a>
 
 </body>
