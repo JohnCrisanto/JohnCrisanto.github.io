@@ -1,6 +1,7 @@
 table {
 	border-collapse: collapse;
 	width: 100%;
+	
 }
 
 th, td {
@@ -111,4 +112,12 @@ caption {
 	text-align: left;
 	font-size: 80%;
 	color: #000000;
+}
+
+th.Def, th.Pro {
+	width: 15%;
+}
+
+th.Sum, th.Assign {
+	width: 35%;
 }

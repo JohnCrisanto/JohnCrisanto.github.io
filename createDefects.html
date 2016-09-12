@@ -3,21 +3,28 @@
 <html>
 <head>
     <title>Bug Tracking System</title>
-    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 
-<div style = "background-color: lightblue; text-align:left;height: 100px">
-    <h1> Ticket Submission Form </h1>
-
+<div class="header"> 
+		<h1>
+			Team-C Corporation <br />
+			<span class="sub">Defect Tracking System</span>
+		</h1>
+		<img src="./images/logo1.jpg" alt="Team C Logo" />
 </div>
+<br></br>
+
+<h2>Ticket Submission Form</h2>
+
 <br></br>
 <a href = "index.html">
     <input type = "submit" value ="Go Back to Home Page.">
 </a>
 <br></br>
 <!--Need to change the application names accordingly-->
-<form action="../CreateDefect" method="POST">
+<form action="CreateDefect" method="post">
     <div class = "form-element">
         <label>Application <span style="color:red">* </span>: </label>
         <select class = "input-element" name ="application" required >

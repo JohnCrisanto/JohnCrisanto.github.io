@@ -7,14 +7,14 @@
 <html lang = "en-US">
 
 <head>
-	<title>E-Corp. Bug Tracker</title>
+	<title>Team-C Bug Tracker</title>
 	<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 	<div class="header">
-		<h1>Evil Corporation <br/><span class="sub">Defect Tracking System</span></h1> 
-		    <img src = "${pageContext.request.contextPath}/images/Evil_Corp.png"
+		<h1>Team-C Corporation <br/><span class="sub">Defect Tracking System</span></h1> 
+		    <img src = "${pageContext.request.contextPath}/images/logo1.jpg"
 		         alt = "Evil Corp Logo" />
           
                
@@ -69,23 +69,19 @@
 		<thead>
            <caption>List of Open Defects</caption>
            	<tr>
-				<th>
-					 Defect Name
-				</th>
-				<th>
-					Summary
-				</th>
-				<th>
-					Assignee
-				</th>
+    			<th class="Def">Defect Name</th>
+    			<th class="Pro">Project</th>
+    			<th class ="Sum">Summary</th>
+    			<th class="Assign">Assignee</th>
 			</tr>
         </thead>
 
 		<tbody>
         <%for(Defect useList : newList){
         	Integer cell1 = useList.getDefectName();
-        	String cell2 = useList.getSummary();
-        	String cell3 = useList.getAssignee();
+            String cell2 = useList.getapplication();
+        	String cell3 = useList.getSummary();
+        	String cell4 = useList.getAssignee();
 //        	System.out.println(cell1 + " " + cell2 + " " + cell3);
         	%>
 
@@ -93,12 +89,9 @@
 				<td>
 				    <input type="radio" name="commonKey" value= <%=cell1%> checked = "checked">  <%= cell1%><br>
 				</td>
-				<td>
-					<%=cell2%>
-				</td>
-				<td>
-					<%=cell3%>
-				</td>
+				<td><%=cell2%></td>
+				<td><%=cell3%></td>
+				<td><%=cell4%></td>				
 			</tr>
          <%} %>
 		</tbody>
