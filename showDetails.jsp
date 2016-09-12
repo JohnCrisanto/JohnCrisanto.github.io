@@ -40,9 +40,8 @@ div {
 			<hr align="left" width="100%">
 			<label>Status: </label> <select name="status" required>
 				<option selected="selected"><%=request.getAttribute("status")%></option>
-				<option>Open</option>
-				<option>In-Progress</option>
-				<option>Closed</option>
+				<option>open</option>
+				<option>closed</option>
 			</select> <br></br> <label>Priority: </label> <select name="priority" required>
 				<option selected="selected"><%=request.getAttribute("priority")%></option>
 				<option>Low</option>
