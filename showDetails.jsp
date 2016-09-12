@@ -38,18 +38,18 @@ div {
 		<div>
 			<h3>Details:</h3>
 			<hr align="left" width="100%">
-			<label>Status: </label> <select name="status">
+			<label>Status: </label> <select name="status" required>
 				<option selected="selected"><%=request.getAttribute("status")%></option>
 				<option>Open</option>
 				<option>In-Progress</option>
 				<option>Closed</option>
-			</select> <br></br> <label>Priority: </label> <select name="priority">
+			</select> <br></br> <label>Priority: </label> <select name="priority" required>
 				<option selected="selected"><%=request.getAttribute("priority")%></option>
 				<option>Low</option>
 				<option>Medium</option>
 				<option>High</option>
 			</select> <br></br> <label>Assignee: </label> <input type="text"
-				name="assignee" value=<%=request.getAttribute("assignee")%>><br>
+				name="assignee" value=<%=request.getAttribute("assignee")%> required><br>
 
 		</div>
 		<br></br>
@@ -67,7 +67,7 @@ div {
 			<h3>Summary:</h3>
 			<hr align="left" width="100%">
 			<br></br>
-			<textarea rows="4" cols="50" name="summary"> 
+			<textarea rows="4" cols="50" name="summary" required> 
 	<%=request.getAttribute("summary")%>
 	</textarea>
 			<br></br>
@@ -78,7 +78,7 @@ div {
 		<button type="submit">Update Defect</button>
 	</form>
 
-<br></br> <a href="OpenDefectPage.jsp">
+<br></br> <a href="/jsp/OpenDefectPage.jsp">
 			<button type="button">List Of Defects</button>
 		</a>
 
