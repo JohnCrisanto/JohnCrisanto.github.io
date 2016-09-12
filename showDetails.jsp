@@ -20,7 +20,7 @@ div {
 </style>
 </head>
 <body>
-	<form action="UpdateDefect.java" method="POST">
+	<form action="UpdateDefect" method="POST">
 	
 	<!-- Passing applicationName and defectName as hidden characters -->
 	
@@ -49,7 +49,7 @@ div {
 				<option>Medium</option>
 				<option>High</option>
 			</select> <br></br> <label>Assignee: </label> <input type="text"
-				name="assignee" value=<%=request.getAttribute("assignee")%> required><br>
+				name="assignee" value=<%=request.getAttribute("assignee")%>><br>
 
 		</div>
 		<br></br>
@@ -67,7 +67,7 @@ div {
 			<h3>Summary:</h3>
 			<hr align="left" width="100%">
 			<br></br>
-			<textarea rows="4" cols="50" name="summary" required> 
+			<textarea rows="4" cols="50" name="summary"> 
 	<%=request.getAttribute("summary")%>
 	</textarea>
 			<br></br>
@@ -78,8 +78,8 @@ div {
 		<button type="submit">Update Defect</button>
 	</form>
 
-<br></br> <a href="/jsp/OpenDefectPage.jsp">
-			<button type="button">List Of Defects</button>
+<br></br> <a href="index.html">
+			<button type="button">Go back to Main page</button>
 		</a>
 
 </body>
