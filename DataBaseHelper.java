@@ -28,7 +28,7 @@ public class DataBaseHelper {
             //System.out.println("getLastDefectId: list is " + defectList);
             for (Defect item : defectList) {
                 if (item.getDefectName() > lastId) {
-                    lastId = item.defectName;
+                    lastId = item.getDefectName();
                 }
             }
         }
