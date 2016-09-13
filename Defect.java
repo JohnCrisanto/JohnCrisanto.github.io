@@ -1,13 +1,13 @@
 package teamc;
 
 public class Defect {
-	public String application;	
-	public String assignee;
-	public Integer defectName;	
-	public String description;
-	public String priority;
-	public String status;	
-	public String summary;
+	private String application;	
+	private String assignee;
+	private Integer defectName;	
+	private String description;
+	private String priority;
+	private String status;	
+	private String summary;
 	
 
 	//Constructor	
