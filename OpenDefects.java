@@ -25,7 +25,7 @@ public class OpenDefects extends HttpServlet {
 		
        //Get open defects list with Project status.
 		ArrayList<Defect> allDefects = DataBaseHelper.openProjectDefects();
-        System.out.println("Inside Servlet found allDefects: " + allDefects.get(0).getSummary());        
+        //System.out.println("Inside Servlet found allDefects: " + allDefects.get(0).getSummary());        
         
         
         //Choose only defects from open projects & that are open.
