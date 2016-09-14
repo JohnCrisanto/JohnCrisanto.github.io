@@ -1,72 +1,61 @@
-<!--Screen 1 : Welcome page-->
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>John Crisanto by JohnCrisanto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">John Crisanto</h1>
+      <h2 class="project-tagline">UCI-Extension, Java II - Bug Tracker System Project</h2>
+    </section>
 
-<head>
-<title>Welcome E-Corp. Bug Tracker</title>
-<link rel="stylesheet" href="styles.css">
-</head>
+    <section class="main-content">
+      <h3>
+<a id="project-overview" class="anchor" href="#project-overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Project Overview</h3>
 
-<body>
-	<div class="header">
-		<h1>
-			Team-C Corporation <br />
-			<span class="sub">Defect Tracking System</span>
-		</h1>
-		<img src="./images/logo1.jpg" alt="Team C Logo" />
-	</div>
+<p>In our Java II course, we were instructed to design and build a web application that serves to track application defects.  The idea is that our system will be used to track defects against existing applications.  It is a simple system used by staff to track bug ticket requests from submission to closure.  </p>
 
-	</br>
-	<section class="instructions">
-		<p>
-			Welcome to the Defect Tracking System. <br /> To enter a new defect,
-			please use the button below to access the Defect Creation page.<br />
-			You may obtain a list of open defects by selecting the project from
-			the drop down menu, or<br /> select "all Open Defects"" to obtain the
-			full list. Note: projects that have been closed cannot<br /> accessed
-			by this system. Please see the System Administrator for archived
-			files.
-		</p>
-	</section>
-	<br />
-	<a href="createDefects.html"> <input type="submit"
-		value="+ Create Defect">
-	</a>
-	<br></br>
-	<!--Search for Open Defects based on selected Project-->
-	<form action="OpenDefects" method="post">
-		<select name="choice">
-			<option value="all" selected>All Open Defects</option>
-			<option value="ProjectA">Project A</option>
-			<option value="ProjectB">Project B</option>
-			<option value="ProjectC">Project C</option>
-		</select> <input type="submit" value="submit">
-	</form>
-	<br></br>
+<h3>
+<a id="application-basic-features" class="anchor" href="#application-basic-features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Application Basic Features</h3>
 
-	<!--Start Table : Need to query info from database. These are sample data only-->
+<ul>
+<li>The system allows the user to view all open tickets for all existing applications registered within the system database.</li>
+<li>The system gives the user the ability to filter which application they want to view existing tickets for.</li>
+<li>The system allows the user to view the details of an open ticket. </li>
+<li>The system allows for the submission of a new ticket.</li>
+<li>The system is configured to notify the assignee of the ticket through email upon updating or creating a ticket.</li>
+<li>The application utilizes a relational database as a mean for data storage, which allows information to persist between user sessions.</li>
+</ul>
 
-	<table>
-		<thead>
-		<caption>List of Open Defects</caption>
-		<tr>
-			<th class="Def">Defect Name</th>
-			<th class="Pro">Project</th>
-			<th class ="Sum">Summary</th>
-			<th class="Assign">Assignee</th>
-		</tr>
-		</thead>
+<h3>
+<a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
-		<tbody>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-		</tbody>
+<p>First, I would like to thank my instructor, Kesha Smith (<a href="https://github.com/ProfessorKesha" class="user-mention">@ProfessorKesha</a>) for giving us an opportunity to work on a great project such as this one.  I would also like to thank my group members Felipe Oliveira De Souza (<a href="https://github.com/felipeJava1" class="user-mention">@felipeJava1</a>), Lawrence Van Sant (<a href="https://github.com/LarryVS" class="user-mention">@LarryVS</a>), and Samuel Ratemo (<a href="https://github.com/sratemo" class="user-mention">@sratemo</a>)for all their efforts when we put this project together.</p>
 
-	</table>
-</body>
+<h3>
+<a id="contact" class="anchor" href="#contact" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contact</h3>
 
+<p>John Crisanto(<a href="https://github.com/JohnCrisanto" class="user-mention">@JohnCrisanto</a>) and my email is <a href="mailto:jcrisanto87@gmail.com">jcrisanto87@gmail.com</a>.</p>
+
+<h3>
+<a id="download-link" class="anchor" href="#download-link" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download Link</h3>
+
+<p>Please visit and download the application source code from the "src" directory at the following link:
+<a href="https://github.com/JohnCrisanto/JohnCrisanto.github.io">Java II, Team C - Bug Tracker System</a></p>
+
+      <footer class="site-footer">
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
 </html>
